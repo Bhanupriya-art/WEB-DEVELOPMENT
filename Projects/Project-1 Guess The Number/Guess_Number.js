@@ -11,12 +11,13 @@ function checkGuess() {
 
   if (isNaN(guess) || guess < 0 || guess > 100) {
     message.textContent = "❗ Please enter a number between 0 and 100.";
+    message.style.color = "darkorange";
     return;
   }
 
   if (guess === secretNumber) {
-    message.textContent = `🎉 You got it right! ${guess} is the secret number!`;
-    message.style.color = "lime";
+    message.textContent = `🎉 Correct! ${guess} is the secret number!`;
+    message.style.color = "green";
     rangeHint.textContent = "";
     disableInput();
   } else {
@@ -25,9 +26,11 @@ function checkGuess() {
 
     if (guess < secretNumber) {
       message.textContent = "📉 Too low!";
+      message.style.color = "#2980b9";
       if (guess >= minRange) minRange = guess + 1;
     } else {
       message.textContent = "📈 Too high!";
+      message.style.color = "#c0392b";
       if (guess <= maxRange) maxRange = guess - 1;
     }
 
@@ -44,9 +47,5 @@ function checkGuess() {
 
 function disableInput() {
   document.getElementById("guessInput").disabled = true;
-  document.querySelector("button").disabled = true;
+  document.getElementById("guessBtn").disabled = true;
 }
-
-
-
-
