@@ -1,61 +1,113 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.counter-box {
-    background-color: #ffffff;
-    padding: 40px 50px;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    text-align: center;
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #c3cfe2, #c3e2c3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.02);
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-    color: #333;
+  font-size: 30px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #fff;
 }
 
-#display {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin: 20px 0;
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #555;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+input[type="number"] {
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border: 2px solid #2c3e50;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  outline: none;
 }
 
-.btn {
-    font-size: 2rem;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    background-color: #3498db;
-    color: white;
-    transition: all 0.3s ease;
+button {
+  background-color: #1abc9c;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
-.btn:hover {
-    background-color: #2980b9;
-    transform: scale(1.1);
+button:hover {
+  background-color: #16a085;
 }
 
-.reset {
-    background-color: #e67e22;
+button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
 }
 
-.reset:hover {
-    background-color: #d35400;
+#message {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  min-height: 24px;
+}
+
+#rangeHint {
+  font-size: 15px;
+  color: #555;
+  margin-top: 5px;
+}
+
+#remaining {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+.info {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.info ul {
+  list-style: square;
+  padding-left: 20px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
 }

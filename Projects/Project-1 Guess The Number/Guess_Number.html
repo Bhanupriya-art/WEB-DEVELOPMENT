@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guess The Number</title>
+  <title>🎯 Guess The Number</title>
   <link rel="stylesheet" href="Guess_Number.css" />
 </head>
 <body>
   <div class="container">
     <h1>🎯 Guess The Number!</h1>
     <p class="subtitle">Guess a number between <b>0</b> and <b>100</b></p>
-    
+
     <div class="game-box">
       <input type="number" id="guessInput" placeholder="Enter your guess" />
-      <button onclick="checkGuess()">Guess</button>
+      <button onclick="checkGuess()" id="guessBtn">Guess</button>
       <p id="message"></p>
       <p id="rangeHint"></p>
       <p id="remaining">You have <span id="attempts">7</span> guesses left.</p>
@@ -33,7 +33,3 @@
   <script src="Guess_Number.js"></script>
 </body>
 </html>
-
-
-
-
