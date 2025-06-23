@@ -1,0 +1,12 @@
+let totalSeconds = 42867;
+let minutes = totalSeconds/60;
+let hours = totalSeconds/3600;
+let days = totalSeconds/(3600 * 24);
+let months = days/30;   
+let years = days/365;    
+console.log("Given Seconds: " + totalSeconds);
+console.log("In Minutes: " + minutes.toFixed(2));
+console.log("In Hours: " + hours.toFixed(2));
+console.log("In Days: " + days.toFixed(2));
+console.log("In Months (approx): " + months.toFixed(2));
+console.log("In Years (approx): " + years.toFixed(2));
