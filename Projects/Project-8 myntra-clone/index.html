@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-header">
+            FLAT 300 OFF | CLEARANCE SALE | 50-80% OFF | 7.5% Additional Cashback*
+        </div>
+        <div class="main-header">
+            <div class="logo">MYNTRA</div>
+            <nav class="nav-links">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Kids</a>
+                <a href="#">Home & Living</a>
+            </nav>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for products, brands and more">
+            </div>
+            <div class="user-actions">
+                <div>
+                    <i class="far fa-user"></i>
+                    <span>Profile</span>
+                </div>
+                <div>
+                    <i class="far fa-heart"></i>
+                    <span>Wishlist</span>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Bag</span>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h1>READY, SET, SAVE BIG!</h1>
+        <p>50-80% OFF ON TOP BRANDS</p>
+        <p>7.5% Additional Cashback* On Flipkart Axis Bank Credit Card</p>
+    </div>
+
+    <!-- Products Section -->
+    <div class="products-container">
+        <h2 class="section-title">Trending Now</h2>
+        <div class="products-grid" id="products-grid">
+            <!-- Products will be added by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>My Bag</h2>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty">
+                <p>Hey, it feels so light!</p>
+                <p>There is nothing in your bag. Let's add some items.</p>
+                <button class="continue-shopping" id="continue-shopping">CONTINUE SHOPPING</button>
+            </div>
+        </div>
+        <div class="cart-total" id="cart-total" style="display: none;">
+            <div class="total-row">
+                <span class="total-label">Subtotal</span>
+                <span class="total-amount" id="subtotal">₹0</span>
+            </div>
+            <div class="total-row">
+                <span class="total-label">Delivery</span>
+                <span class="total-amount">FREE</span>
+            </div>
+            <div class="total-row">
+                <span class="total-label">Total</span>
+                <span class="total-amount" id="total">₹0</span>
+            </div>
+            <button class="checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
+    <!-- Checkout Modal -->
+<div class="checkout-modal" id="checkout-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Order Confirmation</h2>
+        <div class="order-summary" id="order-summary">
+            <!-- Order details will be inserted here -->
+        </div>
+        <p class="thank-you">Thank you for shopping with us!</p>
+        <button class="continue-shopping" id="modal-continue">CONTINUE SHOPPING</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
