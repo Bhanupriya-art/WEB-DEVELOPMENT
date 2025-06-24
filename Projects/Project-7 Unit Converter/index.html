@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>🎀 Unit Converter 🎀</h1>
+        <input type="number" id="inputValue" placeholder="Enter value" />
+        <div class="dropdowns">
+            <select id="inputUnit">
+                <option value="cm">Centimeter</option>
+                <option value="m">Meter</option>
+                <option value="km">Kilometer</option>
+                <option value="g">Gram</option>
+                <option value="kg">Kilogram</option>
+                <option value="L">Liter</option>
+                <option value="in">Inch</option>
+                <option value="lb">Pound</option>
+                <option value="C">Celsius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
+            <span>➡️</span>
+            <select id="outputUnit">
+                <option value="cm">Centimeter</option>
+                <option value="m">Meter</option>
+                <option value="km">Kilometer</option>
+                <option value="g">Gram</option>
+                <option value="kg">Kilogram</option>
+                <option value="L">Liter</option>
+                <option value="in">Inch</option>
+                <option value="lb">Pound</option>
+                <option value="C">Celsius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
+        </div>
+        <button onclick="convertUnit()"> Click to Convert</button>
+        <div id="result"></div>
+        <h3>📝 History</h3>
+        <ul id="history"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
