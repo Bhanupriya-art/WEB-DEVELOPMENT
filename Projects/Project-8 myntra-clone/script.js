@@ -100,9 +100,6 @@ const closeModal = document.querySelector('.close-modal');
 const modalContinue = document.getElementById('modal-continue');
 
 let cart = [];
-
-
-// Render products
 function renderProducts() {
   productsGrid.innerHTML = '';
   products.forEach(product => {
@@ -124,21 +121,14 @@ function renderProducts() {
                 `;
     productsGrid.appendChild(productCard);
   });
-
-  // Add event listeners to add to cart buttons
   document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', addToCart);
   });
 }
-
-// Add to cart function
 function addToCart(e) {
   const productId = parseInt(e.target.getAttribute('data-id'));
   const product = products.find(p => p.id === productId);
-
-  // Check if product is already in cart
   const existingItem = cart.find(item => item.id === productId);
-
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
@@ -147,18 +137,13 @@ function addToCart(e) {
       quantity: 1
     });
   }
-
   updateCart();
   openCart();
 }
 
-// Update cart function
 function updateCart() {
-  // Update cart count
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   cartCount.textContent = totalItems;
-
-  // Update cart items
   if (cart.length === 0) {
     cartItems.innerHTML = `
                     <div class="cart-empty">
@@ -168,8 +153,6 @@ function updateCart() {
                     </div>
                 `;
     cartTotal.style.display = 'none';
-
-    // Add event listener to continue shopping button
     document.getElementById('continue-shopping').addEventListener('click', closeCart);
   } else {
     cartItems.innerHTML = '';
@@ -192,39 +175,30 @@ function updateCart() {
                     `;
       cartItems.appendChild(cartItem);
     });
-
-    // Calculate subtotal and total
     const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     subtotalElement.textContent = `₹${subtotal}`;
     totalElement.textContent = `₹${subtotal}`;
     cartTotal.style.display = 'block';
-
-    // Add event listeners to quantity buttons
     document.querySelectorAll('.minus').forEach(button => {
       button.addEventListener('click', decreaseQuantity);
     });
-
     document.querySelectorAll('.plus').forEach(button => {
       button.addEventListener('click', increaseQuantity);
     });
-
     document.querySelectorAll('.remove-item').forEach(button => {
       button.addEventListener('click', removeItem);
     });
   }
 }
 
-// Quantity functions
 function decreaseQuantity(e) {
   const productId = parseInt(e.target.getAttribute('data-id'));
   const item = cart.find(item => item.id === productId);
-
   if (item.quantity > 1) {
     item.quantity -= 1;
   } else {
     cart = cart.filter(item => item.id !== productId);
   }
-
   updateCart();
 }
 
@@ -240,40 +214,29 @@ function removeItem(e) {
   cart = cart.filter(item => item.id !== productId);
   updateCart();
 }
-
-// Cart open/close functions
 function openCart() {
   cartSidebar.classList.add('open');
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-
 function closeCart() {
   cartSidebar.classList.remove('open');
   overlay.classList.remove('active');
   document.body.style.overflow = 'auto';
 }
-
-// Event listeners
 cartIcon.addEventListener('click', openCart);
 closeCartBtn.addEventListener('click', closeCart);
 overlay.addEventListener('click', closeCart);
 continueShopping.addEventListener('click', closeCart);
 
-// Initialize the page
 renderProducts();
-
-// Show checkout confirmation modal
 function showCheckoutModal() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
         return;
     }
-
-    // Build order summary
     let summaryHTML = '';
     const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    
     cart.forEach(item => {
         summaryHTML += `
             <div class="order-item">
@@ -282,44 +245,30 @@ function showCheckoutModal() {
             </div>
         `;
     });
-    
     summaryHTML += `
         <div class="order-item" style="margin-top: 15px; font-weight: bold;">
             <span>Total</span>
             <span>₹${subtotal}</span>
         </div>
     `;
-    
     orderSummary.innerHTML = summaryHTML;
     checkoutModal.style.display = 'block';
 }
-
-// Close checkout modal
 function closeCheckoutModal() {
     checkoutModal.style.display = 'none';
 }
-
-// Complete checkout process
 function completeCheckout() {
-    // In a real app, you would send this data to your backend
     console.log('Order completed:', cart);
-    
-    // Clear the cart
     cart = [];
     updateCart();
     closeCheckoutModal();
     closeCart();
-    
-    // Show confirmation (optional)
     alert('Your order has been placed successfully!');
 }
-
-// Event listeners for checkout
 checkoutBtn.addEventListener('click', showCheckoutModal);
 closeModal.addEventListener('click', closeCheckoutModal);
 modalContinue.addEventListener('click', completeCheckout);
 
-// Close modal when clicking outside
 window.addEventListener('click', (e) => {
     if (e.target === checkoutModal) {
         closeCheckoutModal();
