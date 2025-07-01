@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-br from-pink-100 to-blue-100 min-h-screen flex items-center justify-center font-sans">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-3xl">
+        <h1 class="text-4xl font-bold text-center text-purple-700 mb-6">💻Typing Speed Test💻</h1>
+
+        <p id="textToType" class="bg-gray-100 p-4 rounded text-lg text-gray-800 mb-4">
+            Click "Start" to begin the test.
+        </p>
+
+        <textarea id="typingInput"
+            class="w-full border-2 border-purple-300 rounded p-4 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4"
+            rows="5" placeholder="Start typing here..." disabled></textarea>
+
+        <div class="flex justify-between">
+            <button onclick="startTest()"
+                class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg font-semibold">Start</button>
+            <button onclick="endTest()"
+                class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-lg font-semibold">Done</button>
+        </div>
+
+        <div id="result" class="mt-6 text-center text-lg text-gray-900 font-medium"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
