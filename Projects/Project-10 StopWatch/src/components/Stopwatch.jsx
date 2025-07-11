@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 const Stopwatch = () => {
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
-
     useEffect(() => {
         let interval;
         if (running) {
@@ -13,7 +11,6 @@ const Stopwatch = () => {
         }
         return () => clearInterval(interval);
     }, [running]);
-
     const formatTime = () => {
         const d = Math.floor(time / (60 * 60 * 24));
         const h = Math.floor((time / (60 * 60)) % 24);
@@ -21,7 +18,6 @@ const Stopwatch = () => {
         const s = Math.floor(time % 60);
         return `${d.toString().padStart(2, '0')}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
     };
-
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100">
             <div className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-md text-center space-y-6">
@@ -53,5 +49,4 @@ const Stopwatch = () => {
         </div>
     );
 };
-
 export default Stopwatch;
