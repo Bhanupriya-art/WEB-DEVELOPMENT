@@ -1,5 +1,4 @@
 const conversions = {
-
     cm: { m: 0.01, km: 0.00001, cm: 1 },
     m: { cm: 100, km: 0.001, m: 1 },
     km: { m: 1000, cm: 100000, km: 1 },
@@ -9,7 +8,6 @@ const conversions = {
     lb: { kg: 0.453592, lb: 1 },
     L: { L: 1 },
 };
-
 function convertTemperature(value, from, to) {
     if (from === to) return value;
     if (from === "C") {
@@ -24,7 +22,6 @@ function convertTemperature(value, from, to) {
     }
     return null;
 }
-
 function convertUnit() {
     const inputValue = parseFloat(document.getElementById("inputValue").value);
     const inputUnit = document.getElementById("inputUnit").value;
@@ -32,7 +29,7 @@ function convertUnit() {
     const resultDiv = document.getElementById("result");
     const history = document.getElementById("history");
     if (isNaN(inputValue)) {
-        resultDiv.textContent = "❌ Please enter a valid number!";
+        resultDiv.textContent = "Please enter a valid number!";
         return;
     }
     let convertedValue = null;
@@ -41,12 +38,12 @@ function convertUnit() {
     } else if (conversions[inputUnit] && conversions[inputUnit][outputUnit]) {
         convertedValue = inputValue * conversions[inputUnit][outputUnit];
     } else {
-        resultDiv.textContent = "❌ Conversion not supported!";
+        resultDiv.textContent = "Conversion not supported!";
         return;
     }
     const formatted = `${inputValue} ${inputUnit} = ${convertedValue.toFixed(3)} ${outputUnit}`;
-    resultDiv.textContent = `✅ ${formatted}`;
+    resultDiv.textContent = `${formatted}`;
     const listItem = document.createElement("li");
-    listItem.textContent = `📌 ${formatted}`;
+    listItem.textContent = `${formatted}`;
     history.prepend(listItem);
 }
